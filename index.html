@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AllviA LearnFit | 학급 관리 컨셉 목업 v0.1</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">A</div>
+        <div>
+          <strong>AllviA LearnFit</strong>
+          <span>교사 화면 · 컨셉 목업</span>
+        </div>
+      </div>
+
+      <div class="scope-note">
+        <span class="scope-dot"></span>
+        학급 관리 영역 v0.1
+      </div>
+
+      <nav class="nav" aria-label="학급 관리 메뉴">
+        <button class="nav-item active" data-view="overview">
+          <span class="nav-icon">01</span>
+          <span><b>학급 종합 현황</b><small>우리 반의 현재 상태</small></span>
+        </button>
+        <button class="nav-item" data-view="lesson">
+          <span class="nav-icon">02</span>
+          <span><b>수업 리포트</b><small>한 번의 수업 복기</small></span>
+        </button>
+        <button class="nav-item" data-view="assignment">
+          <span class="nav-icon">03</span>
+          <span><b>과제 리포트</b><small>제출·수행 결과 분석</small></span>
+        </button>
+        <button class="nav-item" data-view="student">
+          <span class="nav-icon">04</span>
+          <span><b>학생 분석</b><small>누적 변화와 행태</small></span>
+        </button>
+        <button class="nav-item" data-view="insight">
+          <span class="nav-icon">05</span>
+          <span><b>인사이트·후속 조치</b><small>데이터 → 다음 행동</small></span>
+        </button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <p>이 화면은 기능 범위와 사용 흐름 논의를 위한 목업입니다.</p>
+        <p class="muted">모든 수치와 학생 정보는 가상 데이터입니다.</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">학급 관리</div>
+          <h1 id="pageTitle">학급 종합 현황</h1>
+        </div>
+        <div class="top-actions">
+          <label class="select-wrap">
+            <span>학급</span>
+            <select id="classSelect">
+              <option>중학교 1학년 3반</option>
+              <option>중학교 1학년 4반</option>
+            </select>
+          </label>
+          <div class="period-toggle" id="periodToggle">
+            <button data-period="week">최근 1주</button>
+            <button class="active" data-period="month">최근 4주</button>
+            <button data-period="term">이번 학기</button>
+          </div>
+          <button class="ghost-btn" id="dataInfoBtn">데이터 기준</button>
+        </div>
+      </header>
+
+      <section class="view active" id="view-overview"></section>
+      <section class="view" id="view-lesson"></section>
+      <section class="view" id="view-assignment"></section>
+      <section class="view" id="view-student"></section>
+      <section class="view" id="view-insight"></section>
+    </main>
+  </div>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <div>
+        <div class="eyebrow" id="drawerEyebrow">학생 상세</div>
+        <h2 id="drawerTitle">정민준</h2>
+      </div>
+      <button class="icon-btn" id="drawerClose" aria-label="닫기">×</button>
+    </div>
+    <div class="drawer-body" id="drawerBody"></div>
+  </aside>
+
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-head">
+      <div>
+        <div class="eyebrow">데이터 기준</div>
+        <h2>이 목업에서 가정한 분석 기준</h2>
+      </div>
+      <button class="icon-btn" id="modalClose" aria-label="닫기">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="info-grid">
+        <div><b>성과 데이터</b><span>정답률, 점수, 완료율, 문항 결과</span></div>
+        <div><b>참여 데이터</b><span>수업 입장, 과제 제출, 활동 참여, 질문</span></div>
+        <div><b>행태 데이터</b><span>체류, 재시도, 수정, 이탈·재진입, 도움 요청</span></div>
+      </div>
+      <p class="note-box">행태 분석은 별도 메뉴가 아니라 수업·과제·학생 분석 곳곳에 녹여, “결과가 어땠는지”뿐 아니라 “어떻게 학습했는지”까지 보여주는 방향을 가정했습니다.</p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">목업 기능입니다.</div>
+  <script src="app.js"></script>
+</body>
+</html>
